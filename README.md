@@ -8,7 +8,7 @@ The Courtroom Case Management & Priority System is designed to help manage and p
 The project aims to make the case management process more organized and efficient by reducing delays and helping authorities schedule cases according to their urgency.
 
 ## Technology Stack
-
+- C
 - C++
 - Data Structures and Algorithms
 - Object-Oriented Programming
