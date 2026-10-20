@@ -1,0 +1,242 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,left=2.0cm,right=2.0cm,top=1.55cm,bottom=1.55cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+
+\definecolor{TitleBlue}{RGB}{61,103,154}
+\setlength{\parindent}{0pt}
+
+\newcommand{\blueheading}[1]{%
+{\sffamily\color{TitleBlue}\fontsize{15}{18}\selectfont #1}%
+}
+
+\newcommand{\bluebigheading}[1]{%
+{\sffamily\bfseries\color{TitleBlue}\fontsize{16}{19}\selectfont #1}%
+}
+
+\newcommand{\answerbox}[1]{%
+\vspace{2mm}
+\noindent\fbox{%
+\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\fontsize{10.5}{14.5}\selectfont #1
+\end{minipage}}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\sffamily\bfseries\itshape COURSE NAME AND ID:- DSCPP-III-2026-T095}
+\fancyfoot[R]{\thepage}
+\setlength{\headheight}{14pt}
+
+\begin{document}
+
+% ========================= PAGE 1 =========================
+\vspace*{5mm}
+\bluebigheading{PROJECT AND TEAM INFORMATION}
+
+\vspace{12mm}
+\blueheading{Project Title}
+
+\vspace{3mm}
+\answerbox{\textbf{Virtual Courtroom Case \& Priority System}}
+
+\vspace{12mm}
+\blueheading{Student / Team Information}
+
+\vspace{4mm}
+
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|>{\RaggedRight\arraybackslash}p{8.0cm}|>{\centering\arraybackslash}X|}
+\hline
+\parbox[t]{7.7cm}{\textit{TeamName : CourtCraft}} &
+\textit{Team \#} \\
+\hline
+
+\parbox[t][4.1cm][t]{7.7cm}{
+\vspace{2mm}
+\textbf{Team member 1 (Team Lead)}\\[7mm]
+Sharma Pranav -- 2510370362\\[7mm]
+pranavsharma94238@gmail.com
+}
+&
+\parbox[c][4.1cm][c]{\linewidth}{
+\centering
+\includegraphics[height=3.7cm,width=4.0cm,keepaspectratio]{Pranav_Sharma.jpg}
+}
+\\
+\hline
+
+\parbox[t][4.1cm][t]{7.7cm}{
+\vspace{2mm}
+\textbf{Team member 2}\\[7mm]
+Choudhary Vansh -- 25101210186\\[7mm]
+vansh8784@gmail.com
+}
+&
+\parbox[c][4.1cm][c]{\linewidth}{
+\centering
+\includegraphics[height=3.7cm,width=4.0cm,keepaspectratio]{Vansh_Choudhary.jpg}
+}
+\\
+\hline
+
+\parbox[t][4.1cm][t]{7.7cm}{
+\vspace{2mm}
+\textbf{Team member 3}\\[7mm]
+Verma Sudanshu -- 25021026\\[7mm]
+sudanshuverma814@gmail.com
+}
+&
+\parbox[c][4.1cm][c]{\linewidth}{
+\centering
+\includegraphics[height=3.7cm,width=4.0cm,keepaspectratio]{Sudanshu_Verma.jpg}
+}
+\\
+\hline
+\end{tabularx}
+
+\newpage
+
+
+
+% PAGE 2
+\bluebigheading{PROPOSAL DESCRIPTION (10 pts)}
+
+\vspace{7mm}
+\blueheading{Motivation (1 pt)}
+
+\vspace{3mm}
+\answerbox{
+The court system deals with cases that are still waiting to be handled which makes managing these cases and setting hearing dates a tough job. Some cases need to be dealt with away like requests for bail cases that involve older people and very serious crimes. If cases are only handled in the order they arrive important urgent cases might end up waiting than they should.
+
+Our project suggests a Virtual Courtroom Case Management \& Priority System that takes care of all the cases that are waiting and decides which ones should be heard first. Every case will get an urgency score based on things like how days it has been waiting, how serious the case is, what type of case it is and if there are special situations like older people being involved or bail requests.
+
+The system will use a way of organizing cases based on how important they're. Along with setting dates it will keep track of details like what the case is, about the evidence, the people who saw the event what happened in past hearings and where the case stands.
+
+The main goal of this project is to show how Data Structures and Object-Oriented Programming can work together to solve a real-life problem with managing cases. By making the way cases are prioritized and recorded automatic the system can make the pretend courtroom area more tidy, quicker and easier to manage.
+}
+
+\vspace{7mm}
+\blueheading{State of the Art / Current solution (1 pt)}
+
+\vspace{3mm}
+\answerbox{
+Today many courts use digital case management systems to store case records, schedule hearings, track case status and manage documents.. Real judicial systems are very complex because they involve legal procedures, court rules, judges, lawyers and administrative staff.
+
+Modern digital systems help organise amounts of case information.. Deciding the priority of cases can depend on many different factors. Urgent cases such as bail matters or cases involving individuals may require faster attention.
+
+Our project takes the concept of digital case management and creates a smaller educational simulation. I think this project is exciting. The main focus is, on managing pending cases and automatically identifying which case should receive higher priority.
+
+The system will use an urgency score, priority queue, hash map, linked list and other data structures to demonstrate case management. Unlike court systems our project is designed purely for educational purposes and uses simulated case data.
+}
+
+\newpage
+
+% PAGE 3
+\fancyhead[L]{\sffamily\bfseries\itshape COURSE NAME AND ID:- DSCPP-III-2026-T095}
+
+\blueheading{Project Goals and Milestones (2 pts)}
+
+\vspace{3mm}
+\answerbox{
+The main goal of our project is to develop a Courtroom Case Management \& Priority System that can efficiently manage pending cases and determine their hearing priority.
+
+The user will be able to register types of cases such as Criminal, Civil and Family cases. Important information like case severity, pending days, special conditions, evidence and witnesses will be stored in the system.
+
+Each case will receive an urgency score. Based on this score the system will determine which case should be considered first. A Priority Queue will be used to maintain the cases according to their urgency.
+
+A Hash Map will allow searching of cases using a unique Case ID. A Linked List will maintain the hearing history and proceedings of each case. A Stack can also be used to implement an undo feature for recent actions.
+
+For the part we will use classes such as Case, CriminalCase, CivilCase, FamilyCase and CourtSystem. Concepts such, as encapsulation, inheritance, abstraction and polymorphism will be implemented.
+
+The major milestones include case registration, urgency calculation, priority queue implementation, case searching, hearing-history management, testing and final project development.
+}
+
+\vspace{7mm}
+\blueheading{Project Approach (3 pts)}
+
+\vspace{3mm}
+\answerbox{
+We plan to build the project using C++. The user will start by entering information about a case. This information includes the type of case how serious it is, how days it has been waiting and if there are any special things that need attention.
+
+The system will figure out an urgency score for each case. This score could be based on things like how the case has been waiting how serious it is, if an older person is involved and if the case is about getting out of jail.
+
+A Priority Queue that uses a Max-Heap will hold all the cases that are waiting. The case with the urgency score will always be at the top. This makes it easy to see which case should be handled next.
+
+A Hash Map will help find cases quickly using their Case ID. A Linked List will keep track of the history of hearings the evidence, the people who gave testimony and what happened during each step of the case. A Stack can be used to keep track of actions and allow users to undo those actions.
+
+For the Object-Oriented Programming part we will create a base class called Case. Different types of cases, like CriminalCase, CivilCase and FamilyCase will inherit from this class. Each type of case can have its way of calculating priority by using polymorphism.
+
+The project will be. Tested with C++ and VS Code. The final system will have a way for people to register cases look them up set their priority make changes and finish them.
+}
+
+\newpage
+
+% PAGE 4
+\blueheading{System Architecture (High Level Diagram)(2 pts)}
+
+\vspace{4mm}
+\begin{center}
+\includegraphics[width=\textwidth,height=11.5cm,keepaspectratio]{Virtual_Courtroom_System_Architecture.jpg}
+\end{center}
+
+\vspace{4mm}
+\blueheading{Project Outcome / Deliverables (1 pts)}
+
+\vspace{3mm}
+\answerbox{
+The main outcome of our project is a functional Virtual Courtroom Case Management \& Priority System that keeps pending cases organised and runs smoothly.
+
+The Courtroom Case Management \& Priority System lets users register new cases and save key information about them. It also calculates an urgency score so that the Virtual Courtroom Case Management \& Priority System knows which case deserves priority.
+}
+
+\newpage
+
+% PAGE 5
+The Courtroom Case Management \& Priority System will have many useful features. These include registering cases searching for a case by its Case ID ordering hearings, by priority, managing evidence and witnesses tracking hearing history and updating case status.
+
+The Courtroom Case Management \& Priority System will show how important Data Structures work. It will use Priority Queues, Hash Maps, Linked Lists and Stacks in ways.
+
+Another key goal is to use Programming ideas. Different kinds of cases will be shown with inheritance and polymorphism.
+
+By the end of the project we want to build an educational simulation that shows how Data Structures and OOP can team up to solve a real case-management problem.
+
+\vspace{7mm}
+\blueheading{Assumptions}
+
+\vspace{3mm}
+\answerbox{
+For our project we believe that all case information provided by the user is reasonably accurate. The system will use case data instead of actual court records.
+
+We believe that factors such as pending days, severity level and special categories can be given values to calculate the urgency score.
+
+The priority calculation that is used in this project is, for learning purposes and does not show actual judicial rules or legal procedures.
+
+The system is created as a simulation. Is not meant to take the place of judges, lawyers or real court-management systems.
+}
+
+\vspace{7mm}
+\blueheading{References}
+
+\vspace{3mm}
+\answerbox{
+For this project we looked at Data Structures and Object-Oriented Programming study materials to learn about concepts like Priority Queues, Hash Maps, Linked Lists, Stacks, Inheritance, Abstraction and Polymorphism.
+
+We focused on GeeksforGeeks to get an understanding of Data Structures, algorithms and C++ programming concepts.
+
+We also checked W3Schools for C++ programming concepts and how to write the code properly.
+
+We thought about information, about digital case-management systems and court scheduling when we were planning the project.
+
+We used class notes and textbooks related to Data Structures and OOP when we were building the system.
+}
+
+\end{document}
