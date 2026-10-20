@@ -1,0 +1,739 @@
+@import "tailwindcss";
+
+/* =========================================
+   COURTCRAFT — COMPLETE CINEMATIC STYLES
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: #050505;
+
+  /* Local courtroom background */
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 4, 7, 0.92) 0%,
+      rgba(3, 4, 7, 0.76) 34%,
+      rgba(3, 4, 7, 0.42) 68%,
+      rgba(3, 4, 7, 0.62) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.84) 100%
+    ),
+    url("/courtroom-bg.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Prevent accidental blank/white canvas */
+#root {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Subtle cinematic lighting above the image */
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 72% 30%,
+      rgba(220, 170, 90, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 18% 65%,
+      rgba(90, 110, 255, 0.07),
+      transparent 30%
+    );
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  transition: all 0.3s ease;
+}
+
+::selection {
+  background: white;
+  color: black;
+}
+
+/* =========================================
+   FADE-UP
+========================================= */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.animate-fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out 0.4s both;
+}
+
+/* =========================================
+   FLOAT
+========================================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* =========================================
+   GLOW
+========================================= */
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.50;
+    transform: scale(1.15);
+  }
+}
+
+.animate-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* =========================================
+   SHIMMER
+========================================= */
+
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+
+  100% {
+    background-position: 500px 0;
+  }
+}
+
+/* =========================================
+   CINEMATIC PANEL
+========================================= */
+
+@keyframes panelEnter {
+  0% {
+    opacity: 0;
+    transform:
+      translateX(80px)
+      translateY(20px)
+      rotateY(-12deg)
+      scale(0.92);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateX(0)
+      translateY(0)
+      rotateY(0deg)
+      scale(1);
+  }
+}
+
+.animate-panel {
+  animation:
+    panelEnter 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+    float 6s ease-in-out 1.2s infinite;
+  transform-origin: center;
+}
+
+.court-panel {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.court-panel:hover {
+  transform: translateY(-10px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.20);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.60),
+    0 0 50px rgba(255, 255, 255, 0.06);
+}
+
+/* Panel light sweep */
+.court-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: panelShine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes panelShine {
+  0% {
+    left: -120%;
+  }
+
+  35% {
+    left: 140%;
+  }
+
+  100% {
+    left: 140%;
+  }
+}
+
+/* =========================================
+   STAT CARDS
+========================================= */
+
+.stat-card {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================
+   CARD GLOW
+========================================= */
+
+.group {
+  position: relative;
+}
+
+.group::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.10),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.group:hover::before {
+  opacity: 1;
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+@keyframes progressLoad {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 76%;
+  }
+}
+
+.animate-progress {
+  animation: progressLoad 1.8s ease-out forwards;
+}
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+@keyframes cinematicReveal {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(70px)
+      scale(0.96);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+    filter: blur(0);
+  }
+}
+
+#features,
+#about,
+#contact {
+  perspective: 1200px;
+}
+
+#features > *,
+#about .max-w-7xl {
+  animation:
+    cinematicReveal
+    linear
+    both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 35%;
+}
+
+/* Contact entrance */
+#contact .max-w-7xl {
+  animation:
+    contactCinematic
+    1.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+@keyframes contactCinematic {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(100px)
+      scale(0.92);
+  }
+
+  60% {
+    opacity: 1;
+    transform:
+      translateY(-8px)
+      scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* =========================================
+   FEATURE 3D HOVER
+========================================= */
+
+#features .group {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+#features .group:hover {
+  transform:
+    translateY(-12px)
+    rotateX(3deg)
+    rotateY(-2deg)
+    scale(1.025);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.50),
+    0 0 35px rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+nav {
+  position: relative;
+  z-index: 50;
+
+  transition:
+    padding 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.45s ease,
+    box-shadow 0.45s ease,
+    backdrop-filter 0.45s ease;
+
+  background: rgba(5, 6, 9, 0.38);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.20);
+}
+
+nav:hover {
+  background: rgba(8, 9, 13, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.30);
+}
+
+/* Navbar logo */
+nav a:first-child {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    letter-spacing 0.4s ease;
+}
+
+nav a:first-child:hover {
+  transform: scale(1.04);
+  letter-spacing: 0.5px;
+}
+
+/* Navbar links */
+nav a:not(:first-child) {
+  position: relative;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+nav a:not(:first-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+nav a:not(:first-child):hover {
+  transform: translateY(-2px);
+}
+
+nav a:not(:first-child):hover::after {
+  width: 70%;
+}
+
+/* Login */
+nav button {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+nav button:hover {
+  transform:
+    translateY(-2px)
+    scale(1.03);
+
+  box-shadow:
+    0 10px 30px rgba(255, 255, 255, 0.12),
+    0 0 25px rgba(255, 255, 255, 0.04);
+}
+
+/* Cinematic navbar line */
+nav::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 0;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+
+  opacity: 0.7;
+}
+
+/* =========================================
+   HERO DEPTH
+========================================= */
+
+main {
+  perspective: 1400px;
+}
+
+main h1 {
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+main p {
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.70);
+}
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+main button {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+main button:hover {
+  transform:
+    translateY(-4px)
+    scale(1.025);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+   GLASS
+========================================= */
+
+.glass {
+  background: rgba(10, 11, 16, 0.48);
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    background-position: 68% center;
+    background-attachment: scroll;
+  }
+
+  .court-panel {
+    transform: none !important;
+  }
+
+  #features .group:hover {
+    transform:
+      translateY(-6px)
+      scale(1.01);
+  }
+
+  nav a:not(:first-child)::after {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================
+   COURTCRAFT — BACKGROUND VISIBILITY FIX
+   The HomePage wrapper was covering the body image.
+========================================= */
+
+#root {
+  background: transparent !important;
+}
+
+/* Let the cinematic courtroom image show through
+   the main page wrapper. */
+#root > div {
+  background-color: transparent !important;
+}
+
+/* Keep the image visible behind the whole app. */
+body {
+  background-color: #050505 !important;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 4, 7, 0.86) 0%,
+      rgba(3, 4, 7, 0.62) 38%,
+      rgba(3, 4, 7, 0.28) 70%,
+      rgba(3, 4, 7, 0.52) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.30) 0%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.70) 100%
+    ),
+    url("/courtroom-bg.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-position: 68% center !important;
+    background-attachment: scroll !important;
+  }
+}
+
+
+/* Final cinematic sync */
+main {
+  min-height: 78vh;
+}
+
+.court-panel {
+  background: rgba(8, 9, 13, 0.58) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+@media (max-width: 768px) {
+  main { min-height: auto; }
+}
+
+
+/* =========================================
+   FINAL BACKGROUND VISIBILITY
+========================================= */
+body {
+  background-color: #050505 !important;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 4, 7, 0.48) 0%,
+      rgba(3, 4, 7, 0.28) 42%,
+      rgba(3, 4, 7, 0.12) 72%,
+      rgba(3, 4, 7, 0.30) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.02) 52%,
+      rgba(0, 0, 0, 0.42) 100%
+    ),
+    url("/courtroom-bg.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+#root,
+#root > div {
+  background: transparent !important;
+}
+
+
+/* =========================================
+   FINAL COURTCRAFT CINEMATIC POLISH
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+}
+
+nav {
+  isolation: isolate;
+}
+
+.feature-card,
+.court-panel {
+  transform-style: preserve-3d;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important;
+  }
+}
