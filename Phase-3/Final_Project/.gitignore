@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+frontend/node_modules/
+
+# build output
+backend/build/
+frontend/dist/
+*.exe
+*.o
+*.obj
+
+# vcpkg (large; re-install with vcpkg instead of committing)
+vcpkg/
+
+# local secrets / settings (never commit passwords)
+.env
+.env.*
+*.local
+backend/config.local*
+
+# editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
